@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextInputProps } from 'react-native';
 export interface ComposerProps {
-    composerHeight?: number;
+    composerHeight?: number | 'auto';
     text?: string;
     placeholder?: string;
     placeholderTextColor?: string;

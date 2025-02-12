@@ -13,7 +13,7 @@ import Color from './Color'
 import { StylePropType } from './utils'
 
 export interface ComposerProps {
-  composerHeight?: number
+  composerHeight?: number | 'auto'
   text?: string
   placeholder?: string
   placeholderTextColor?: string
