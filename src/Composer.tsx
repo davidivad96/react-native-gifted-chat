@@ -106,7 +106,7 @@ export function Composer ({
 }
 
 Composer.propTypes = {
-  composerHeight: PropTypes.number,
+  composerHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   text: PropTypes.string,
   placeholder: PropTypes.string,
   placeholderTextColor: PropTypes.string,
