@@ -9,7 +9,7 @@ export interface DayProps<TMessage extends IMessage = IMessage> {
     wrapperStyle?: StyleProp<ViewStyle>;
     textStyle?: StyleProp<TextStyle>;
     textProps?: TextProps;
-    dateFormat?: string;
+    dateFormatCalendar?: object;
     inverted?: boolean;
 }
-export declare function Day<TMessage extends IMessage = IMessage>({ dateFormat, currentMessage, previousMessage, containerStyle, wrapperStyle, textStyle, }: DayProps<TMessage>): React.JSX.Element | null;
+export declare function Day<TMessage extends IMessage = IMessage>({ dateFormatCalendar, currentMessage, previousMessage, containerStyle, wrapperStyle, textStyle, }: DayProps<TMessage>): React.JSX.Element | null;

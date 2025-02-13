@@ -37,7 +37,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> extends P
     user?: User;
     locale?: string;
     timeFormat?: string;
-    dateFormat?: string;
+    dateFormatCalendar?: object;
     loadEarlier?: boolean;
     isLoadingEarlier?: boolean;
     isKeyboardInternallyHandled?: boolean;

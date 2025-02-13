@@ -9,13 +9,12 @@ import {
   TextProps,
 } from 'react-native'
 import dayjs from 'dayjs'
+import calendar from 'dayjs/plugin/calendar'
 
 import Color from './Color'
 import { isSameDay } from './utils'
-import { DATE_FORMAT } from './Constant'
+import { DATE_FORMAT_CALENDAR } from './Constant'
 import { IMessage } from './Models'
-
-import { useChatContext } from './GiftedChatContext'
 
 const styles = StyleSheet.create({
   container: {
@@ -32,6 +31,8 @@ const styles = StyleSheet.create({
   },
 })
 
+dayjs.extend(calendar)
+
 export interface DayProps<TMessage extends IMessage = IMessage> {
   currentMessage: TMessage
   nextMessage?: TMessage
@@ -40,20 +41,18 @@ export interface DayProps<TMessage extends IMessage = IMessage> {
   wrapperStyle?: StyleProp<ViewStyle>
   textStyle?: StyleProp<TextStyle>
   textProps?: TextProps
-  dateFormat?: string
+  dateFormatCalendar?: object
   inverted?: boolean
 }
 
 export function Day<TMessage extends IMessage = IMessage> ({
-  dateFormat = DATE_FORMAT,
+  dateFormatCalendar = DATE_FORMAT_CALENDAR,
   currentMessage,
   previousMessage,
   containerStyle,
   wrapperStyle,
   textStyle,
 }: DayProps<TMessage>) {
-  const { getLocale } = useChatContext()
-
   if (currentMessage == null || isSameDay(currentMessage, previousMessage))
     return null
 
@@ -61,9 +60,7 @@ export function Day<TMessage extends IMessage = IMessage> ({
     <View style={[styles.container, containerStyle]}>
       <View style={wrapperStyle}>
         <Text style={[styles.text, textStyle]}>
-          {dayjs(currentMessage.createdAt)
-            .locale(getLocale())
-            .format(dateFormat)}
+          {dayjs().calendar(currentMessage.createdAt, dateFormatCalendar)}
         </Text>
       </View>
     </View>

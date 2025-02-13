@@ -98,8 +98,8 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> extends P
   locale?: string
   /* Format to use for rendering times; default is 'LT' */
   timeFormat?: string
-  /* Format to use for rendering dates; default is 'll' */
-  dateFormat?: string
+  /* Format to use for rendering dates; check this: https://day.js.org/docs/en/plugin/calendar */
+  dateFormatCalendar?: object
   /* Enables the "Load earlier messages" button */
   loadEarlier?: boolean
   /* Display an ActivityIndicator when loading earlier messages */
