@@ -60,7 +60,7 @@ export function Day<TMessage extends IMessage = IMessage> ({
     <View style={[styles.container, containerStyle]}>
       <View style={wrapperStyle}>
         <Text style={[styles.text, textStyle]}>
-          {dayjs().calendar(currentMessage.createdAt, dateFormatCalendar)}
+          {dayjs(currentMessage.createdAt).calendar(null, dateFormatCalendar)}
         </Text>
       </View>
     </View>
